@@ -29,4 +29,4 @@ SECRET=seiRocks!
 ##### Starting the App
 
 - One terminal
-command - ```npm run dev```# AI-test
+command - ```npm run dev```
