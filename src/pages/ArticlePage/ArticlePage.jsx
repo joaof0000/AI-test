@@ -1,7 +1,7 @@
 import { useState, uesEffect, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
-import AddPuppyForm from "../../components/AddPuppyForm/AddPuppyForm";
-import PostGallery from "../../components/PostGallery/PostGallery";
+import NewArticle from "../../components/NewArticle/NewArticle";
+import ArticleBlog from "../../components/ArticleBlog/ArticleBlog";
 
 import { Grid } from "semantic-ui-react";
 
@@ -10,7 +10,7 @@ import * as postsApi from "../../utils/postApi";
 import * as likesApi from "../../utils/likeApi";
 
 export default function ArticlePage({ user, handleLogout }) {
-  // The reasons we are setting posts state, is because then we can pass that data to the postgallery
+  // The reasons we are setting posts state, is because then we can pass that data to the articleBlog
   // where it will be rendered!
   const [posts, setPosts] = useState([]); // array of objects containing the likes as well)
   const [error, setError] = useState("");
@@ -41,7 +41,7 @@ export default function ArticlePage({ user, handleLogout }) {
     }
   }
   // (C)RUD
-  // we will call this function in the handleSubmit of the AddPuppyForm, and pass to it
+  // we will call this function in the handleSubmit of the NewArticle, and pass to it
   // the formData we created
   // this way when we get a response from the server we can easily update the state, since its
   // in this component
@@ -82,12 +82,12 @@ export default function ArticlePage({ user, handleLogout }) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <AddPuppyForm handleAddPost={handleAddPost} />
+          <NewArticle handleAddPost={handleAddPost} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <PostGallery
+          <ArticleBlog
             posts={posts}
             itemsPerRow={1}
             isProfile={false}

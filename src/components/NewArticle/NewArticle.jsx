@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 
 // handleAddPost comes as prop from the app component
-export default function AddPuppyForm({ handleAddPost }) {
+export default function NewArticle({ handleAddPost }) {
   // create the state, pay attention to how the inputs are setup!o
   const [state, setState] = useState({
     caption: "",

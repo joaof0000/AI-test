@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
 import ProfileBio from "../../components/ProfileBio/ProfileBio";
-import PostGallery from "../../components/PostGallery/PostGallery";
+import ArticleBlog from "../../components/ArticleBlog/ArticleBlog";
 import PageHeader from "../../components/Header/Header";
 
 import userService from "../../utils/userService";
@@ -91,7 +91,7 @@ export default function MyArticles({ user, handleLogout }) {
       </Grid.Row>
       <Grid.Row centered>
         <Grid.Column style={{ maxWidth: 750 }}>
-          <PostGallery
+          <ArticleBlog
             posts={posts}
             itemsPerRow={3}
             isProfile={true}
