@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 
-// handleAddPost comes as prop from the app component
 export default function NewArticle({ handleAddPost }) {
-  // create the state, pay attention to how the inputs are setup!o
   const [state, setState] = useState({
     caption: "",
+    content: "", // Add a new state for the blog content
   });
-
-  const [selectedFile, setSelectedFile] = useState("");
-
-  function handleFileInput(e) {
-    setSelectedFile(e.target.files[0]);
-  }
 
   function handleChange(e) {
     setState({
@@ -21,15 +14,15 @@ export default function NewArticle({ handleAddPost }) {
     });
   }
 
-  // The function that handles the changes on the input, Look at the inputs for the name of it
-
   function handleSubmit(e) {
-    // Since we are sendinga file, prepare the object as formData to send to the server
-    const formData = new FormData();
-    formData.append("caption", state.caption);
-    formData.append("photo", selectedFile);
+    e.preventDefault();
+    // Prepare the object to send to the server
+    const formData = {
+      caption: state.caption,
+      content: state.content, // Include the blog content
+    };
 
-    // call handleAddPost, which calls our postsApi.create function in the utils folder
+    // Call handleAddPost, which calls our postsApi.create function in the utils folder
     handleAddPost(formData);
   }
 
@@ -40,19 +33,20 @@ export default function NewArticle({ handleAddPost }) {
           className="form-control"
           name="caption"
           value={state.caption}
-          placeholder="Please enter your AI article"
+          placeholder="Create a title for your AI blog"
           onChange={handleChange}
           required
         />
-        <Form.Input
+        <Form.TextArea // Use a textarea input for the blog content
           className="form-control"
-          type="file"
-          name="photo"
-          placeholder="upload image"
-          onChange={handleFileInput}
+          name="content"
+          value={state.content}
+          placeholder="Write your blog post here"
+          onChange={handleChange}
+          required
         />
         <Button type="submit" className="btn">
-          ADD FILE
+          ADD BLOG POST {/* Update the button text */}
         </Button>
       </Form>
     </Segment>

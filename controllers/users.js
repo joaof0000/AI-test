@@ -54,6 +54,7 @@ async function signup(req, res) {
     }
 
     req.body.photoUrl = data.Location;
+   
     const user = new User(req.body);
     try {
       await user.save();

@@ -40,7 +40,7 @@ function create(req, res) {
       const post = await Post.create({
         caption: req.body.caption,
         user: req.user, 
-        photoUrl: data.Location, 
+        photoUrl: data.Location,
       });
 
       await post.populate("user");
