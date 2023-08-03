@@ -17,13 +17,9 @@ export default function NewArticle({ handleAddPost }) {
   function handleSubmit(e) {
     e.preventDefault();
     // Prepare the object to send to the server
-    const formData = {
-      caption: state.caption,
-      content: state.content, // Include the blog content
-    };
-
+ 
     // Call handleAddPost, which calls our postsApi.create function in the utils folder
-    handleAddPost(formData);
+    handleAddPost(state);
   }
 
   return (

@@ -12,8 +12,7 @@ import {
 	Segment,
   } from "semantic-ui-react";
 
-// this hook can be used to programtically change url we are on 
-// on the client (react, browser code)
+
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage({handleSignUpOrLogin}){
@@ -88,10 +87,10 @@ export default function SignUpPage({handleSignUpOrLogin}){
 		}
 	
 		return (
-			<Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-			 <Grid.Column style={{ maxWidth: 450 }}>
-				<Header as="h2" color="purple" textAlign="center">
-				 <Image src="https://i.imgur.com/TM4eA5g.jpg" /> Sign Up
+			<Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="top">
+			 <Grid.Column style={{ maxWidth: 350 }}>
+				<Header as="h3" color="red" textAlign="center">
+				 <Image src="https://plus.unsplash.com/premium_photo-1682814732010-d7f4917fad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" /> Sign Up
 			   </Header>
 			   <Form autoComplete="off" onSubmit={handleSubmit}>
 				 <Segment stacked>

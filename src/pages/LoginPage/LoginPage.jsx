@@ -53,10 +53,10 @@ export default function LoginPage({handleSignUpOrLogin}) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h3" color="red" textAlign="center">
-          <Image src="https://i.imgur.com/TM4eA5g.jpg" /> Login to your account
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="top">
+      <Grid.Column style={{ maxWidth: 350 }}>
+        <Header as="h3" color="red" textAlign="left">
+          <Image src="https://plus.unsplash.com/premium_photo-1682814732010-d7f4917fad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80https://i.imgur.com/TM4eA5g.jpg" /> Login to your account
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
@@ -77,7 +77,7 @@ export default function LoginPage({handleSignUpOrLogin}) {
               required
             />
 
-            <Button type="submit" className="btn">
+            <Button type="submit" className="btn" textAlign="left">
               Login
             </Button>
           </Segment>
