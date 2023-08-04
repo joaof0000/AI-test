@@ -7,7 +7,15 @@ const BASE_URL = '/api/posts/';
 export function create(data){
 	return fetch(BASE_URL, {
 		method: 'POST',
-		body: data, 
+		body: JSON.stringify(data),
+		mode: 'cors',
+		credentials: 'include',
+		cache: 'no-cache',
+		redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+		
+
+
 		headers: {
 			
 			
