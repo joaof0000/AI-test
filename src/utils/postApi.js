@@ -8,17 +8,13 @@ export function create(data){
 	return fetch(BASE_URL, {
 		method: 'POST',
 		body: JSON.stringify(data),
-		mode: 'cors',
-		credentials: 'include',
-		cache: 'no-cache',
-		redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-		
+	
+
 
 
 		headers: {
 			
-			
+			'Content-Type': 'application/json',
 			Authorization: "Bearer " + tokenService.getToken() 
 			
 		}

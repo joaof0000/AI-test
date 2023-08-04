@@ -8,12 +8,7 @@ export default function NewArticle({ handleAddPost }) {
   });
 
 
-  const [setSelectedFile] = useState('')
-
-  function handleFileInput(e){
-    setSelectedFile(e.target.files[0])
-  }
-
+  
   function handleChange(e) {
     setState({
       ...state,
@@ -23,13 +18,12 @@ export default function NewArticle({ handleAddPost }) {
 
   function handleSubmit(e) {
   
-    const formData = new FormData();
-    formData.append('caption', state.caption)
-    formData.append('content', state.content)
-    
-    handleAddPost(formData)
+   
+    console.log(state);
+    handleAddPost(state)
    
   
+    
   }
 
   return (

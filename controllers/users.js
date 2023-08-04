@@ -3,14 +3,6 @@ const Post = require("../models/post");
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 
-const { v4: uuidv4 } = require("uuid");
-
-const S3 = require("aws-sdk/clients/s3");
-
-const s3 = new S3();
-
-const BUCKET_NAME = process.env.BUCKET_NAME;
-
 module.exports = {
   signup,
   login,
@@ -24,7 +16,7 @@ async function profile(req, res) {
     if (!user) return res.status(404).json({ error: "User not found" });
 
     const posts = await Post.find({ user: user._id }).populate("user").exec();
-    console.log(posts, " this posts");
+    console.log(posts, " these are the posts");
     res.status(200).json({ posts: posts, user: user });
   } catch (err) {
     console.log(err);
@@ -33,40 +25,15 @@ async function profile(req, res) {
 }
 
 async function signup(req, res) {
-  console.log(req.body, req.file, " req.body", "req.file");
-
-  if (!req.file)
-    return res.status(400).json({ error: "Please Submit a Photo" });
-
-  const filePath = `pupstagram65/${uuidv4()}-${req.file.originalname}`;
-
-  const params = { Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer };
-
-  s3.upload(params, async function (err, data) {
-    if (err) {
-      console.log("===============================");
-      console.log(
-        err,
-        " <- error from aws, Probably telling you your keys are not correct"
-      );
-      console.log("===============================");
-      res.status(400).json({ error: "error from aws, check your terminal" });
-    }
-
-    req.body.photoUrl = data.Location;
-   
-    const user = new User(req.body);
-    try {
-      await user.save();
-      const token = createJWT(user);
-      res.json({ token });
-    } catch (err) {
-      console.log(err);
-
-      console.log(err);
-      res.status(400).json(err);
-    }
-  });
+  const user = new User(req.body);
+  try {
+    await user.save();
+    const token = createJWT(user);
+    res.json({ token });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
 }
 
 async function login(req, res) {
@@ -91,3 +58,4 @@ async function login(req, res) {
 function createJWT(user) {
   return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
 }
+
