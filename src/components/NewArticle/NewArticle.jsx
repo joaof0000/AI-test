@@ -4,8 +4,15 @@ import { Button, Form, Grid, Segment } from "semantic-ui-react";
 export default function NewArticle({ handleAddPost }) {
   const [state, setState] = useState({
     caption: "",
-    content: "", // Add a new state for the blog content
+    content: "", 
   });
+
+
+  const [setSelectedFile] = useState('')
+
+  function handleFileInput(e){
+    setSelectedFile(e.target.files[0])
+  }
 
   function handleChange(e) {
     setState({
@@ -15,11 +22,14 @@ export default function NewArticle({ handleAddPost }) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    // Prepare the object to send to the server
- 
-    // Call handleAddPost, which calls our postsApi.create function in the utils folder
-    handleAddPost(state);
+  
+    const formData = new FormData();
+    formData.append('caption', state.caption)
+    formData.append('content', state.content)
+    
+    handleAddPost(formData)
+   
+  
   }
 
   return (
@@ -33,7 +43,7 @@ export default function NewArticle({ handleAddPost }) {
           onChange={handleChange}
           required
         />
-        <Form.TextArea // Use a textarea input for the blog content
+        <Form.TextArea 
           className="form-control"
           name="content"
           value={state.content}
@@ -42,7 +52,7 @@ export default function NewArticle({ handleAddPost }) {
           required
         />
         <Button type="submit" className="btn">
-          ADD BLOG POST {/* Update the button text */}
+          ADD BLOG POST 
         </Button>
       </Form>
     </Segment>

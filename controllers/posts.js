@@ -15,9 +15,9 @@ module.exports = {
 };
 
 function create(req, res) {
-  console.log(req.body, req.file, " < req.body, req.file in posts/api create");
+  console.log(req.body, " < req.body, req.file in posts/api create");
 
-  if (!req.file) return res.status(400).json({ error: "Please Submit a Photo" });
+  if (!req.file) return res.status(400).json({ error: "Please Submit a doc" });
 
   
   const filePath = `pupstagram65/posts/${uuidv4()}-${req.file.originalname}`;
@@ -40,7 +40,7 @@ function create(req, res) {
       const post = await Post.create({
         caption: req.body.caption,
         user: req.user, 
-        photoUrl: data.Location,
+        content: req.body.content,
       });
 
       await post.populate("user");

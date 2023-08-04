@@ -22,7 +22,6 @@ export default function SignUpPage({handleSignUpOrLogin}){
 			email: '',
 			password: '',
 			passwordConf: '',
-			bio: ''
 		})
 		
 		// this state will handle the file upload
@@ -60,7 +59,7 @@ export default function SignUpPage({handleSignUpOrLogin}){
 			formData.append('username', state.username)
 			formData.append('email', state.email)
 			formData.append('password', state.password)	
-			formData.append('bio', state.bio)
+			
 
 			// this for loop does the same thing as the code above ^^^
 			// for (let key in state){
@@ -124,13 +123,6 @@ export default function SignUpPage({handleSignUpOrLogin}){
 					 value={state.passwordConf}
 					 onChange={handleChange}
 					 required
-				   />
-				   <Form.TextArea
-					 label="bio"
-					 name="bio"
-					 placeholder="Tell us more about your dogs..."
-					 value={state.bio}
-					 onChange={handleChange}
 				   />
 				   <Form.Field>
 					 <Form.Input

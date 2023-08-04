@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
-import ProfileBio from "../../components/ProfileBio/ProfileBio";
 import ArticleBlog from "../../components/ArticleBlog/ArticleBlog";
 import PageHeader from "../../components/Header/Header";
 
@@ -82,11 +81,6 @@ export default function MyArticles({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user} />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
-          <ProfileBio user={userState} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row centered>
