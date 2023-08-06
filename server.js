@@ -14,6 +14,8 @@ const userRouter = require("./routes/api/users")
 const postRouter = require('./routes/api/posts')
 const likesRouter = require('./routes/api/likes')
 
+
+
 app.use(logger("dev"));
 
 
@@ -26,6 +28,8 @@ app.use(require("./config/auth"));
 app.use("/api/users", userRouter);
 app.use('/api/posts', postRouter);
 app.use('/api', likesRouter);
+
+
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

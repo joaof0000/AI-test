@@ -73,14 +73,14 @@ async function updateArticle(req, res) {
   }
 }
 
-// async function index(req, res) {
-//   try {
-//     // Looking for all of the locations that the user logged in has pinned
-//     const updates = await UpdateModel.find({ user: req.user })
-//       .populate('user')
-//       .exec()
-//     res.status(200).json({ updates: updates })
-//   } catch (err) {
-//     res.status(400).json({ error: err })
-//   }
-// }
+async function index(req, res) {
+  try {
+    // Looking for all of the locations that the user logged in has pinned
+    const updates = await UpdateModel.find({ user: req.user })
+      .populate('user')
+      .exec()
+    res.status(200).json({ updates: updates })
+  } catch (err) {
+    res.status(400).json({ error: err })
+  }
+}

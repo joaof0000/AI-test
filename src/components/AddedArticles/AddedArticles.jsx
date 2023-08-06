@@ -1,17 +1,25 @@
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
+import { deleteArticle } from "../../utils/updateApi";
 
 function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
   const likedIndex = post.likes.findIndex(
     (like) => like.username === user.username
   );
 
-  const likeColor = likedIndex > -1 ? "red" : "grey";
+  const likeColor = likedIndex > -1 ? "blue" : "yellow";
 
   const clickHandler =
     likedIndex > -1
       ? () => removeLike(post.likes[likedIndex]._id)
       : () => addLike(post._id);
+  const handleDelete = () => {
+      deleteArticle(post._id);
+     };
 
+  const handleEdit = () => {
+      editPost(post);
+      };    
+    
   return (
     <Card key={post._id}>
       {isProfile ? null : (
@@ -38,14 +46,24 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
       <Card.Description>{post.content}</Card.Description>
       </Card.Content>
       <Card.Content extra textAlign={"right"}>
-        <Icon
-          name={"heart"}
-          size="large"
-          color={likeColor}
-          onClick={clickHandler}
-        />
+        <Icon name="computer" size="large" color={likeColor} onClick={clickHandler} />
+      </Card.Content>
+      <Card.Content extra textAlign={"right"}>
+        <Icon name={"favorite"} size="small" color={likeColor} onClick={clickHandler} />
         {post.likes.length} Likes
       </Card.Content>
+      {isProfile && (
+        <Card.Content extra textAlign={"right"}>
+          <Button color="blue" onClick={handleEdit}>
+            <Icon name="edit" />
+            Edit
+          </Button>
+          <Button color="red" onClick={handleDelete}>
+            <Icon name="trash" />
+            Delete
+          </Button>
+        </Card.Content>
+      )}
     </Card>
   );
 }

@@ -8,8 +8,9 @@ export default function ArticleBlog({
   addLike,
   removeLike,
   user,
+  deletePost
 }) {
-  const addedArticless = posts.map((post) => {
+  const addedArticles = posts.map((post) => {
     return (
       <AddedArticles
         post={post}
@@ -18,9 +19,10 @@ export default function ArticleBlog({
         addLike={addLike}
         removeLike={removeLike}
         user={user}
+        deletePost={deletePost}
       />
     );
   });
 
-  return <Card.Group itemsPerRow={itemsPerRow}>{addedArticless}</Card.Group>;
+  return <Card.Group itemsPerRow={itemsPerRow}>{addedArticles}</Card.Group>;
 }

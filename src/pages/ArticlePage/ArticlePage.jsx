@@ -94,6 +94,8 @@ export default function ArticlePage({ user, handleLogout }) {
             addLike={addLike}
             removeLike={removeLike}
             user={user}
+            deletePost={() => {}} // we will pass this function to the articleBlog
+            
           />
         </Grid.Column>
       </Grid.Row>

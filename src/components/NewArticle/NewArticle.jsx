@@ -16,14 +16,29 @@ export default function NewArticle({ handleAddPost }) {
     });
   }
 
+  function handleChange(e) {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+
+
   function handleSubmit(e) {
   
    
     console.log(state);
     handleAddPost(state)
-   
-  
     
+  }
+
+
+  function handleClear() {
+    setState({
+      caption: "",
+      content: "",
+    });
   }
 
   return (
@@ -48,7 +63,11 @@ export default function NewArticle({ handleAddPost }) {
         <Button type="submit" className="btn">
           ADD BLOG POST 
         </Button>
+        <Button type="reset" className="btn" onClick={handleClear}>
+          Clear
+        </Button>
       </Form>
+
     </Segment>
   );
 }

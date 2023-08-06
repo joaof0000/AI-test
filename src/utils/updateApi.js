@@ -41,8 +41,8 @@ export function getAllupdates() {
   });
 }
 
-export function removeupdate(updateUrl) {
-  return fetch(`${BASE_URL}/${updateUrl}`, {
+export function deleteArticle(articleId) { // Rename the function here
+  return fetch(`${BASE_URL}/addedarticles/${articleId}`, {
     method: "DELETE",
     headers: {
       // convention for sending jwts
