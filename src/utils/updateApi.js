@@ -42,9 +42,10 @@ export function getAllupdates() {
 }
 
 export function deleteArticle(articleId) { // Rename the function here
-  return fetch(`${BASE_URL}/addedarticles/${articleId}`, {
+  return fetch(`${BASE_URL}/${articleId}`, {
     method: "DELETE",
     headers: {
+      
       // convention for sending jwts
 
       Authorization: "Bearer " + tokenService.getToken(), // < this is how we get the token from localstorage and and it to our api request

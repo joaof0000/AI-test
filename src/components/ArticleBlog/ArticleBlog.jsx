@@ -1,5 +1,6 @@
 import { Card } from "semantic-ui-react";
 import AddedArticles from "../AddedArticles/AddedArticles";
+import "./ArticleBlog.css";
 
 export default function ArticleBlog({
   posts,
@@ -24,5 +25,5 @@ export default function ArticleBlog({
     );
   });
 
-  return <Card.Group itemsPerRow={itemsPerRow}>{addedArticles}</Card.Group>;
+  return <div className="article-blog-container">{addedArticles}</div>;
 }

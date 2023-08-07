@@ -7,6 +7,7 @@ import PageHeader from "../../components/Header/Header";
 import userService from "../../utils/userService";
 
 import * as likesApi from "../../utils/likeApi";
+import * as updateApi from "../../utils/updateApi";
 
 export default function MyArticles({ user, handleLogout }) {
   const [posts, setPosts] = useState([]);

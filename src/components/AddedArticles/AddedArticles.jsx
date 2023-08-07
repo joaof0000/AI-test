@@ -2,9 +2,7 @@ import { Card, Icon, Image, Button } from "semantic-ui-react";
 import { deleteArticle } from "../../utils/updateApi";
 
 function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
-  const likedIndex = post.likes.findIndex(
-    (like) => like.username === user.username
-  );
+  const likedIndex = post.likes.findIndex((like) => like.username === user.username);
 
   const likeColor = likedIndex > -1 ? "blue" : "yellow";
 
@@ -12,17 +10,19 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
     likedIndex > -1
       ? () => removeLike(post.likes[likedIndex]._id)
       : () => addLike(post._id);
+
   const handleDelete = () => {
-      deleteArticle(post._id);
-     };
+    deleteArticle(post._id);
+  };
 
   const handleEdit = () => {
-      editPost(post);
-      };    
-    
+    editPost(post);
+  };
+
   return (
-    <Card key={post._id}>
-      {isProfile ? null : (
+    <div className="adddedarticles-container">
+    <Card key={post._id} className="post-card">
+      {!isProfile && (
         <Card.Content textAlign="left">
           <Image
             floated="left"
@@ -38,22 +38,31 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
         </Card.Content>
       )}
 
-   
       <Card.Content>
         <Card.Description>{post.caption}</Card.Description>
       </Card.Content>
       <Card.Content>
-      <Card.Description>{post.content}</Card.Description>
+        <Card.Description>{post.content}</Card.Description>
       </Card.Content>
-      <Card.Content extra textAlign={"right"}>
-        <Icon name="computer" size="large" color={likeColor} onClick={clickHandler} />
+      <Card.Content extra textAlign="right">
+        <Icon
+          name="computer"
+          size="large"
+          color={likeColor}
+          onClick={clickHandler}
+        />
       </Card.Content>
-      <Card.Content extra textAlign={"right"}>
-        <Icon name={"favorite"} size="small" color={likeColor} onClick={clickHandler} />
+      <Card.Content extra textAlign="right">
+        <Icon
+          name="favorite"
+          size="small"
+          color={likeColor}
+          onClick={clickHandler}
+        />
         {post.likes.length} Likes
       </Card.Content>
       {isProfile && (
-        <Card.Content extra textAlign={"right"}>
+        <Card.Content extra textAlign="right">
           <Button color="blue" onClick={handleEdit}>
             <Icon name="edit" />
             Edit
@@ -65,6 +74,7 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
         </Card.Content>
       )}
     </Card>
+    </div>
   );
 }
 

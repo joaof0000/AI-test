@@ -13,6 +13,7 @@ const app = express();
 const userRouter = require("./routes/api/users")
 const postRouter = require('./routes/api/posts')
 const likesRouter = require('./routes/api/likes')
+const updatesRouter = require('./routes/api/updates')
 
 
 
@@ -24,10 +25,11 @@ app.use(express.json());
 
 
 app.use(require("./config/auth"));
-
+app.use('/api/updates', updatesRouter);
 app.use("/api/users", userRouter);
 app.use('/api/posts', postRouter);
 app.use('/api', likesRouter);
+
 
 
 
