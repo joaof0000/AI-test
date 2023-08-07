@@ -1,5 +1,4 @@
-AI Blog Platform README
-
+AI Blog
 This AI Blog Platform is a web application that allows users to create, read, update, and delete blog articles. It is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Semantic UI React for the user interface. The application provides a clean and intuitive interface for users to publish their articles and interact with others' posts. Users can create an account, log in, and access their own profile page to manage their articles. The platform also supports features like liking on articles.
 
 The backend of the application is implemented using Express.js, which serves as the RESTful API for handling user requests. The data is stored in a MongoDB database using Mongoose for data modeling. The API endpoints handle CRUD (Create, Read, Update, Delete) operations for articles, allowing users to perform various actions on their posts. Authentication and authorization are managed using JWT (JSON Web Tokens) to ensure that only authorized users can create, edit, or delete their articles.
