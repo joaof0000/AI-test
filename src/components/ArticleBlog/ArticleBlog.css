@@ -1,24 +1,20 @@
-/* ArticleBlog.css */
-
+/* Add some spacing between articles */
 .article-blog-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .addedarticles-container {
-    width: calc(35% - 30px); /* Two items per row */
-    /* width: calc(33.33% - 20px); */ /* Three items per row */
-    /* width: calc(25% - 30px); */ /* Four items per row */
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .addedarticles-container:hover {
-    transform: translateY(-5px);
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Add a subtle animation on hover */
+.post-card {
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.15);
+}
+
+/* Make the content font robotic */
+.post-card .content .description {
+  font-family: "roboto", sans-serif;
+}

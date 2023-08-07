@@ -1,5 +1,6 @@
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 import { deleteArticle } from "../../utils/updateApi";
+import "./AddedArticles.css";
 
 function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
   const likedIndex = post.likes.findIndex((like) => like.username === user.username);
@@ -18,14 +19,15 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
   const handleEdit = () => {
     editPost(post);
   };
+  
 
   return (
-    <div className="adddedarticles-container">
+    <div className="added-articles-container">
     <Card key={post._id} className="post-card">
       {!isProfile && (
-        <Card.Content textAlign="left">
+        <Card.Content textAlign="center">
           <Image
-            floated="left"
+            floated="center"
             size="large"
             avatar
             src={
@@ -63,10 +65,10 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
       </Card.Content>
       {isProfile && (
         <Card.Content extra textAlign="right">
-          <Button color="blue" onClick={handleEdit}>
+          {/* <Button color="blue" onClick={handleEdit}>
             <Icon name="edit" />
             Edit
-          </Button>
+          </Button> */}
           <Button color="red" onClick={handleDelete}>
             <Icon name="trash" />
             Delete

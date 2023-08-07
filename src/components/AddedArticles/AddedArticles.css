@@ -2,13 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
   }
   
-  /* Adjust the width based on the desired number of items per row */
-  .added-article {
-    width: calc(25% - 30px); /* Two items per row */
-    /* width: calc(33.33% - 20px); */ /* Three items per row */
-    /* width: calc(25% - 30px); */ /* Four items per row */
-  }
-  
+ 

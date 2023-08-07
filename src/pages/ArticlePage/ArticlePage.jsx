@@ -89,7 +89,7 @@ export default function ArticlePage({ user, handleLogout }) {
         <Grid.Column style={{ maxWidth: 450 }}>
           <ArticleBlog
             posts={posts}
-            itemsPerRow={1}
+            itemsPerRow={3}
             isProfile={false}
             addLike={addLike}
             removeLike={removeLike}

@@ -1,5 +1,7 @@
 import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import "./Header.css";
+
 
 export default function PageHeader({ user, handleLogout }) {
   return (
@@ -8,7 +10,8 @@ export default function PageHeader({ user, handleLogout }) {
         <Grid.Column floated="left" textAlign="left">
           <Header as="h3">
             <Link to="/" style={{ color: "red", marginRight: "10px" }}>
-              <Icon name="home" />
+              <Icon name="user" />
+              <Icon name="computer" />
             </Link>
             <Link to={`/${user?.username}`} style={{ color: "white" }}>
               <Image
@@ -20,13 +23,15 @@ export default function PageHeader({ user, handleLogout }) {
                 avatar
                 style={{ marginRight: "10px" }}
               />
-              Hi there, Time to write a blog, {user?.username}
+              {user?.username},
+              Hi there, Time to write an article for your AI blog!
             </Link>
           </Header>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right">
           <Header as="h2">
             <Link to="" onClick={handleLogout} style={{ color: "red" }}>
+              <Icon name="sign out" />
               GoodBye
             </Link>
           </Header>

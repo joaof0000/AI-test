@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
+import "./NewArticle.css";
 
 export default function NewArticle({ handleAddPost }) {
   const [state, setState] = useState({
@@ -43,7 +44,7 @@ export default function NewArticle({ handleAddPost }) {
 
   return (
     <Segment>
-      <Form autoComplete="off" onSubmit={handleSubmit}>
+      <Form autoComplete="off" onSubmit={handleSubmit} className="form-container">
         <Form.Input
           className="form-control"
           name="caption"
@@ -59,6 +60,7 @@ export default function NewArticle({ handleAddPost }) {
           placeholder="Write your blog post here"
           onChange={handleChange}
           required
+          rows={6}
         />
         <Button type="submit" className="btn">
           ADD BLOG POST 

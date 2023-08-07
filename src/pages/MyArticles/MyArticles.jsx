@@ -72,7 +72,7 @@ export default function MyArticles({ user, handleLogout }) {
     return (
       <>
         <PageHeader handleLogout={handleLogout} user={user} />
-        <h1>Loading....</h1>
+        <h1></h1>
       </>
     );
   }
@@ -85,10 +85,10 @@ export default function MyArticles({ user, handleLogout }) {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row centered>
-        <Grid.Column style={{ maxWidth: 750 }}>
+        <Grid.Column style={{ maxWidth: 2000 }}>
           <ArticleBlog
             posts={posts}
-            itemsPerRow={3}
+            itemsPerRow={4}
             isProfile={true}
             user={user}
             addLike={addLike}
