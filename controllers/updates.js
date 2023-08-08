@@ -50,17 +50,8 @@ async function deleteArticle(req, res) {
 async function updateArticle(req, res) {
   try {
     // Find the article with the given ID and owned by the authenticated user
-    const article = await Article.findOneAndUpdate(
-      { user: req.user, _id: req.params.articleId },
-      {
-        photoUrl: req.body.photoUrl,
-        caption: req.body.caption,
-        content: req.body.content,
-        // Add more fields here based on your article's data structure
-      },
-      { new: true, runValidators: true }
-    );
-
+    const article = await Article.findOneAndUpdate({ _id: req.params.articleId});
+     
     // If the article does not exist, return an error
     if (!article) {
       return res.status(404).json({ error: "Article not found" });

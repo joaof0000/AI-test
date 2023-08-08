@@ -9,7 +9,8 @@ export default function ArticleBlog({
   addLike,
   removeLike,
   user,
-  deletePost
+  deletePost,
+  updateArticle,
 }) {
   const addedArticles = posts.map((post) => {
     return (
@@ -21,6 +22,7 @@ export default function ArticleBlog({
         removeLike={removeLike}
         user={user}
         deletePost={deletePost}
+        updateArticle={updateArticle}
       />
     );
   });

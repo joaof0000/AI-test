@@ -56,3 +56,19 @@ export function deleteArticle(articleId) { // Rename the function here
     throw new Error("Something went wrong in delete update");
   });
 }
+
+export function updateArticle(articleId) { // Rename the function here
+  return fetch(`${BASE_URL}/${articleId}`, {
+    method: "PUT",
+    headers: {
+      
+      // convention for sending jwts
+
+      Authorization: "Bearer " + tokenService.getToken(), // < this is how we get the token from localstorage and and it to our api request
+      // so the server knows who the request is coming from when the client is trying to make a POST
+    },
+  }).then((responseFromTheServer) => {
+    if (responseFromTheServer.ok) return responseFromTheServer.json(); //
+    throw new Error("Something went wrong in edit update");
+  });
+}
