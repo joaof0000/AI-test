@@ -13,8 +13,14 @@ To get started with the AI Blog Platform, users need to have Node.js and MongoDB
 
 Overall, the AI Blog Platform provides an accessible and user-friendly interface for users to showcase their writing skills and engage with a community of bloggers. The MERN stack ensures a robust and scalable architecture, making it easy to extend the functionality of the application in the future. With features like user authentication, article management, and interaction with other users' posts, the AI Blog Platform is a comprehensive solution for anyone looking to create their own blog and share their thoughts with the world.
 
+This is the login screen:
 ![Image](/rd-pics/Login.png)
+
+
+The add a blog screen. You can also add a title
 ![Image](/rd-pics/EnterBlog.png)
+
+The Blog of the login user:
 ![Image](/rd-pics/MyBlogs.png)
 
 
