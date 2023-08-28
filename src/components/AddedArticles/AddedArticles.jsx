@@ -67,10 +67,10 @@ function AddedArticles({ post, isProfile, addLike, removeLike, user }) {
         </Card.Content>
         {isProfile && (
           <Card.Content extra textAlign="right">
-            <Button color="blue" onClick={handleEdit}>
+            {/* <Button color="blue" onClick={handleEdit}>
               <Icon name="edit" />
-              Edit
-            </Button>
+              Edi
+            </Button> */}
             <Button color="red" onClick={handleDelete}>
               <Icon name="trash" />
               Delete
